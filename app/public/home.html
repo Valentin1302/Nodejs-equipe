@@ -7,22 +7,24 @@
 <body>
   <h1>Bienvenue sur le site</h1>
 
-  <form id="createForm">
+  <form id="createForm" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="Titre" required />
     <textarea name="body" placeholder="Contenu" required></textarea>
+    <input type="file" name="image" accept="image/*"><br>
     <button type="submit">Créer</button>
   </form>
 
   <div id="editFormContainer" style="display:none; border:1px solid #ccc; padding:10px; margin-top:20px;">
-  <h3>Modifier l'article</h3>
-  <form id="editForm">
-    <input type="text" id="editTitle" required /><br/><br/>
-    <textarea id="editBody" required></textarea><br/><br/>
-    <button type="submit">Enregistrer</button>
-    <button type="button" id="cancelEdit">Annuler</button>
-  </form>
-</div>
-
+    <h3>Modifier l'article</h3>
+    <form id="editForm" enctype="multipart/form-data">
+      <input type="text" id="editTitle" required /><br><br>
+      <textarea id="editBody" required></textarea><br><br>
+      <input type="file" id="editImage" name="image" accept="image/*"><br>
+      <img id="editImagePreview" style="max-width:150px"><br>
+      <button type="submit">Enregistrer</button>
+      <button type="button" id="cancelEdit">Annuler</button>
+    </form>
+  </div>
 
   <h2>Articles :</h2>
   <div id="articlesContainer"></div>
