@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion</title>
+</head>
+<body>
+  <h1>Se connecter</h1>
+  <form id="loginForm">
+    <input type="text" name="username" placeholder="Nom d'utilisateur" required />
+    <input type="password" name="password" placeholder="Mot de passe" required />
+    <button type="submit">Se connecter</button>
+    <p>Pas encore de compte ? <a href="/register.html">Créer un compte</a></p>
+
+  </form>
+
+  <script src="main.js">
+      localStorage.setItem('user', JSON.stringify({
+        id: user.id,
+        name: user.name
+      }));
+  </script>
+</body>
+</html>
