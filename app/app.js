@@ -68,5 +68,5 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Erreur serveur' });
 });
-
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.listen(3000, () => console.log('Server running on http://localhost:3000'));
