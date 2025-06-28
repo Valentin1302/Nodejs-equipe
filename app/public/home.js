@@ -15,15 +15,18 @@ window.loadArticles = async function() {
   const articles = await res.json();
 
   articles.forEach(article => {
-    const div = document.createElement('div');
-    div.innerHTML = `
+      const div = document.createElement('div');
+      div.className = 'article';
+      div.innerHTML = `
+      ${article.image ? `<img src="${article.image}" alt="Image de l'article">` : ''}
       <h3><a href="article.html?id=${article.id}">${article.title}</a></h3>
       <p>${article.body}</p>
-      ${article.image ? `<img src="${article.image}" style="max-width:200px">` : ''}
-      <button onclick="editArticle(${article.id}, '${escapeQuotes(article.title)}', '${escapeQuotes(article.body)}', '${article.image || ''}')">Modifier</button>
-      <button onclick="deleteArticle(${article.id})">Supprimer</button>
-    `;
-    container.appendChild(div);
+      <div class="button-group">
+        <button onclick="editArticle(${article.id}, '${escapeQuotes(article.title)}', '${escapeQuotes(article.body)}', '${article.image || ''}')">Modifier</button>
+        <button onclick="deleteArticle(${article.id})">Supprimer</button>
+      </div>
+      `;
+      container.appendChild(div);
   });
 };
 

@@ -151,6 +151,7 @@
     <div class="article-header">
       <h1 id="article-title" class="article-title"></h1>
       <div id="article-meta" class="article-meta"></div>
+      <img id="article-image" style="max-width: 100%; margin-top: 10px;" />
     </div>
 
     <div id="article-body" class="article-content"></div>
@@ -221,6 +222,13 @@ let articleId;
       document.getElementById('article-meta').innerHTML =
         `Par <strong>${article.author}</strong> le ${formatDate(article.created_at || article.date)}`;
       document.getElementById('article-body').textContent = article.body;
+      const imageEl = document.getElementById('article-image');
+      if (article.image) {
+      imageEl.src = article.image;
+      imageEl.style.display = 'block';
+      } else {
+      imageEl.style.display = 'none';
+      }
 
       await loadComments(articleId);
 
@@ -471,6 +479,7 @@ let articleId;
     alert("Erreur lors de la suppression du commentaire");
   }
 }
+
 
   window.addEventListener('DOMContentLoaded', loadArticle);
 </script>
