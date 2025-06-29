@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
 
     const formatted = articles.map(article => ({
       ...article,
-      image: formatImageUrl(req, article.Image) // <-- conversion ici
+      image: formatImageUrl(req, article.Image) 
     }));
 
     res.json(formatted);
